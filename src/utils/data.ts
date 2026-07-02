@@ -1,3 +1,10 @@
+# ============================================================
+# REPOGUARD — MANUAL REVIEW REQUIRED: src/utils/data.ts
+# Scanned: 2026-07-02T22:01:41.910Z
+# The following findings could NOT be automatically patched:
+#   [CRITICAL] python-exec-compile: Python exec(compile()) obfuscation — common in PyPI malware
+# ============================================================
+
 // ─── Home Routes Data ───────────────────────────────────
 export const HOME_ROUTES = [
     { label: "How it works", href: "#how-it-works" },
@@ -44,7 +51,7 @@ export const ALL_RULES = [
         tag: "CRITICAL",
         tagClass: "bg-brand-red/10 text-brand-red border border-brand-red/20",
         title: "Reverse Shells",
-        desc: "Catches bash -i >& /dev/tcp and netcat reverse shell patterns before they reach your default branch.",
+        desc: "Catches # REMOVED BY REPOGUARD: reverse shell
     },
     {
         tag: "CRITICAL",
@@ -68,7 +75,7 @@ export const ALL_RULES = [
         tag: "HIGH",
         tagClass: "bg-brand-orange/10 text-brand-orange border border-brand-orange/20",
         title: "Crypto Miners",
-        desc: "Detects xmrig, stratum+tcp, and cryptonight keywords injected into CI pipelines and scripts.",
+        desc: "Detects # REMOVED BY REPOGUARD: crypto miner
     },
     {
         tag: "HIGH",
