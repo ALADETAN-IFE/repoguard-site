@@ -10,18 +10,6 @@ The official marketing website for [RepoGuard](https://github.com/marketplace/re
 - **Icons:** Lucide React
 - **Language:** TypeScript
 
-## Getting Started
-
-```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
 ## Project Structure
 
 ```
@@ -52,18 +40,7 @@ src/
 
 All page content (rules, FAQs, changelog entries) lives in `src/utils/index.ts` — update those arrays to change what's displayed without touching the components.
 
-## Deployment
-
-The site is designed to deploy on [Vercel](https://vercel.com):
-
-```bash
-# Build for production
-npm run build
-```
-
-Push to your main branch and Vercel will deploy automatically if connected.
-
 ## Related
 
-- [RepoGuard GitHub App](https://github.com/ALADETAN-IFE/repoguard) — the backend
+- [RepoGuard GitHub App Codebase](https://github.com/ALADETAN-IFE/repoguard)
 - [GitHub Marketplace Listing](https://github.com/marketplace/repoguard-ifecodes)
