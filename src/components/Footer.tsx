@@ -27,7 +27,7 @@ export default function Footer() {
           </div>
           
           <p className="text-xs text-[#3a5878]">
-            © 2026 IfeCodes. Built by{" "}
+            © 2026 RepoGuard. Built by{" "}
             <a 
               href="https://ifecodes.xyz" 
               target="_blank" 
