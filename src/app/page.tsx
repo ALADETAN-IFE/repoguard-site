@@ -3,12 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Nav } from "@/components";
 import { Footer } from "@/components";
-import {
-  motion,
-  AnimatePresence,
-  useInView,
-  animate,
-} from "motion/react";
+import { motion, AnimatePresence, useInView, animate } from "motion/react";
 import {
   Terminal as TerminalIcon,
   Check,
@@ -291,7 +286,7 @@ export default function Home() {
             className="flex flex-wrap gap-4 justify-center mb-16"
           >
             <a
-              href="https://github.com/marketplace/repoguard-ifecodes"
+              href="https://github.com/apps/repoguard-ifecodes"
               className="flex items-center gap-2 bg-blue-accent text-brand-white px-7 py-3.5 rounded-lg font-semibold text-base hover:bg-blue-dim transition-all hover:scale-[1.02] duration-150 shadow-lg shadow-blue-accent/20"
               target="_blank"
               rel="noopener noreferrer"
@@ -759,7 +754,7 @@ export default function Home() {
             immediately.
           </p>
           <a
-            href="https://github.com/marketplace/repoguard-ifecodes"
+            href="https://github.com/apps/repoguard-ifecodes"
             className="inline-flex items-center gap-2.5 bg-blue-accent text-brand-white px-8 py-4 rounded-lg font-semibold text-base hover:bg-blue-dim transition-all hover:scale-[1.02] duration-150 shadow-lg shadow-blue-accent/20"
             target="_blank"
             rel="noopener noreferrer"

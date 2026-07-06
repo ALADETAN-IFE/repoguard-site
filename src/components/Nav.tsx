@@ -50,7 +50,7 @@ export default function Nav() {
             className="text-sm text-brand-muted hover:text-brand-white transition-colors"
           />
           <a
-            href="https://github.com/marketplace/repoguard-ifecodes"
+            href="https://github.com/apps/repoguard-ifecodes"
             className="rounded-lg bg-blue-accent px-4 py-2 text-sm font-semibold text-brand-white hover:bg-blue-dim transition-all hover:scale-[1.02] duration-150"
             target="_blank"
             rel="noopener noreferrer"
@@ -86,7 +86,7 @@ export default function Nav() {
                 onClick={toggleMenu}
               />
               <a
-                href="https://github.com/marketplace/repoguard-ifecodes"
+                href="https://github.com/apps/repoguard-ifecodes"
                 className="rounded-lg bg-blue-accent py-3 text-center text-sm font-semibold text-brand-white hover:bg-blue-dim transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
