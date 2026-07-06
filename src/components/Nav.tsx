@@ -32,12 +32,17 @@ export default function Nav() {
 
   return (
     <nav className="sticky top-0 z-50 border-b border-navy-border bg-navy/90 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-[1100px] items-center justify-between px-6">
-        <Link href="/" className="flex items-center gap-2 font-mono text-lg font-bold tracking-tight text-brand-white">
+      <div className="mx-auto flex h-16 max-w-275 items-center justify-between px-6">
+        <Link
+          href="/"
+          className="flex items-center gap-2 font-mono text-lg font-bold tracking-tight text-brand-white"
+        >
           <ShieldAlert className="text-blue-accent" size={22} />
-          <span>Repo<span className="text-blue-accent">Guard</span></span>
+          <span>
+            Repo<span className="text-blue-accent">Guard</span>
+          </span>
         </Link>
-        
+
         {/* Desktop links */}
         <div className="hidden lg:flex items-center gap-8">
           <NavLinks
@@ -55,8 +60,8 @@ export default function Nav() {
         </div>
 
         {/* Hamburger button */}
-        <button 
-          className="block lg:hidden text-brand-white hover:text-blue-accent p-1 cursor-pointer transition-colors" 
+        <button
+          className="block lg:hidden text-brand-white hover:text-blue-accent p-1 cursor-pointer transition-colors"
           onClick={toggleMenu}
           aria-label="Toggle navigation menu"
         >
