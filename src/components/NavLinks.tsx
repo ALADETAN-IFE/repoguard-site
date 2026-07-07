@@ -3,6 +3,7 @@
 import { HOME_ROUTES } from "@/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 interface NavLinksProps {
   type: "header" | "footer";
@@ -13,6 +14,31 @@ interface NavLinksProps {
 export function NavLinks({ type, className = "text-sm text-brand-muted hover:text-brand-white transition-colors", onClick }: NavLinksProps) {
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const [hash, setHash] = useState("");
+
+  useEffect(() => {
+    const syncHash = () => setHash(window.location.hash);
+
+    syncHash();
+    window.addEventListener("hashchange", syncHash);
+
+    return () => window.removeEventListener("hashchange", syncHash);
+  }, []);
+
+  const isActiveRoute = (href: string) => {
+    if (href === "/") {
+      return pathname === "/" && !hash;
+    }
+
+    if (href.startsWith("#")) {
+      return isHome && hash === href;
+    }
+
+    return pathname === href;
+  };
+
+  const getLinkClassName = (href: string) =>
+    isActiveRoute(href) ? `text-blue-accent font-semibold ${className}` : className;
 
   // Build the route list based on context
   const sectionRoutes = HOME_ROUTES.filter((r) => r.label !== "Home");
@@ -51,15 +77,15 @@ export function NavLinks({ type, className = "text-sm text-brand-muted hover:tex
           key={route.href}
           href={route.href}
           onClick={onClick}
-          className={className}
+          className={getLinkClassName(route.href)}
         >
           {route.label}
         </Link>
       ))}
-      <Link href="/privacy" onClick={onClick} className={className}>
+      <Link href="/privacy" onClick={onClick} className={getLinkClassName("/privacy")}>
         Privacy
       </Link>
-      <Link href="/terms" onClick={onClick} className={className}>
+      <Link href="/terms" onClick={onClick} className={getLinkClassName("/terms")}>
         Terms
       </Link>
     </>
