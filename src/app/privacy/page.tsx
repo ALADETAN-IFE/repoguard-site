@@ -63,7 +63,7 @@ export default function PrivacyPage() {
 
         <h2>7. Contact</h2>
         <p>
-          <strong>Fortune Ifeloju Aladetan (IfeCodes)</strong><br />
+          <strong>Fortune Ife Aladetan (IfeCodes)</strong><br />
           GitHub: <a href="https://github.com/ALADETAN-IFE" style={{color:"var(--blue)"}}>github.com/ALADETAN-IFE</a>
         </p>
 
