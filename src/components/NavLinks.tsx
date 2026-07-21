@@ -26,11 +26,13 @@ export function NavLinks({ type, className = "text-sm text-brand-muted hover:tex
   }, []);
 
   const isActiveRoute = (href: string) => {
+    console.log("href",href)
     if (href === "/") {
       return pathname === "/" && !hash;
     }
 
     if (href.startsWith("#")) {
+      console.log("href",href)
       return isHome && hash === href;
     }
 
@@ -38,7 +40,7 @@ export function NavLinks({ type, className = "text-sm text-brand-muted hover:tex
   };
 
   const getLinkClassName = (href: string) =>
-    isActiveRoute(href) ? `text-blue-accent font-semibold ${className}` : className;
+    isActiveRoute(href) ? `text-brand-yellow font-semibold ${className}` : className;
 
   // Build the route list based on context
   const sectionRoutes = HOME_ROUTES.filter((r) => r.label !== "Home");
