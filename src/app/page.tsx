@@ -325,7 +325,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-navy-border">
             <div className="text-center py-2">
               <div className="font-mono text-4xl md:text-5xl font-bold text-brand-white mb-2">
-                <AnimatedCounter value={22} />
+                <AnimatedCounter value={23} />
                 <span className="text-blue-accent">+</span>
               </div>
               <div className="text-xs tracking-wider text-brand-muted uppercase">
@@ -520,7 +520,7 @@ export default function Home() {
                       size={18}
                       className="text-blue-accent inline mr-1.5"
                     />{" "}
-                    Full coverage (22+)
+                    Full coverage (23+)
                   </td>
                   <td className="p-5">
                     <X size={18} className="text-brand-red/60 inline mr-1.5" />{" "}
@@ -654,7 +654,7 @@ export default function Home() {
               onClick={() => setShowAllRules(!showAllRules)}
               className="inline-flex items-center gap-2 px-6 py-3 border border-navy-border rounded-lg text-sm font-mono font-semibold text-brand-muted hover:text-brand-white hover:border-brand-muted cursor-pointer transition-colors duration-150"
             >
-              {showAllRules ? "Show Less Rules" : "Expand All 22+ Rules"}
+              {showAllRules ? "Show Less Rules" : "Expand All 23+ Rules"}
               <motion.div
                 animate={{ rotate: showAllRules ? 180 : 0 }}
                 transition={{ duration: 0.2 }}

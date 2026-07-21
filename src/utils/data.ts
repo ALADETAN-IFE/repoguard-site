@@ -24,7 +24,7 @@ export const FAQS = [
     },
     {
         q: "How does it handle false positives?",
-        a: "While our 22+ detection rules are heavily optimized to prevent noise, you can configure exceptions by committing a `.repoguardignore` file to the root of your repository to ignore specific files or rules.",
+        a: "While our 23+ detection rules are heavily optimized to prevent noise, you can configure exceptions by committing a `.repoguardignore` file to the root of your repository to ignore specific files or rules.",
     },
     {
         q: "Is my repository data stored or sent anywhere?",
@@ -32,7 +32,7 @@ export const FAQS = [
     },
 ];
 
-// ─── 22 Rules Data ───────────────────────────────────────
+// ─── 23 Rules Data ───────────────────────────────────────
 export const ALL_RULES = [
     {
         tag: "CRITICAL",
@@ -141,6 +141,12 @@ export const ALL_RULES = [
         tagClass: "bg-brand-orange/10 text-brand-orange border border-brand-orange/20",
         title: "NPM publish overrides",
         desc: "Flags scripts that dynamically publish or modify package versions or registries during CI/CD.",
+    },
+    {
+        tag: "HIGH",
+        tagClass: "bg-brand-orange/10 text-brand-orange border border-brand-orange/20",
+        title: "Suspicious Gitignore Entry",
+        desc: "Known malware artifacts listed in `.gitignore` or `.repoguardignore`.",
     },
     {
         tag: "MEDIUM",

@@ -31,7 +31,7 @@ src/
 - **Stats** — Animated counters (detection rules, typosquat signatures, scan time)
 - **How It Works** — 3-step install → scan → fix flow
 - **Comparison** — Feature table vs Dependabot and GitHub CodeQL
-- **Detection Coverage** — All 22+ detection rules with expandable grid
+- **Detection Coverage** — All 23+ detection rules with expandable grid
 - **FAQ** — Accordion with common questions
 - **Changelog** — Timeline of rule updates and releases
 - **CTA** — Install call to action
