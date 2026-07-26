@@ -11,7 +11,7 @@ interface NavLinksProps {
   onClick?: () => void;
 }
 
-export function NavLinks({ type, className = "text-sm text-brand-muted hover:text-brand-white transition-colors", onClick }: NavLinksProps) {
+export function NavLinks({ type, className = "text-sm text-brand-muted transition-colors", onClick }: NavLinksProps) {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [hash, setHash] = useState("");
@@ -40,7 +40,7 @@ export function NavLinks({ type, className = "text-sm text-brand-muted hover:tex
   };
 
   const getLinkClassName = (href: string) =>
-    isActiveRoute(href) ? `text-brand-yellow font-semibold ${className}` : className;
+    isActiveRoute(href) ? `text-brand-yellow font-semibold ${className}` : `${className} hover:text-brand-white`;
 
   // Build the route list based on context
   const sectionRoutes = HOME_ROUTES.filter((r) => r.label !== "Home");
