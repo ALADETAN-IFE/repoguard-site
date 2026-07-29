@@ -23,16 +23,14 @@ export function NavLinks({ type, className = "text-sm text-brand-muted transitio
     window.addEventListener("hashchange", syncHash);
 
     return () => window.removeEventListener("hashchange", syncHash);
-  }, []);
+  }, [pathname]);
 
   const isActiveRoute = (href: string) => {
-    console.log("href",href)
     if (href === "/") {
       return pathname === "/" && !hash;
     }
 
     if (href.startsWith("#")) {
-      console.log("href",href)
       return isHome && hash === href;
     }
 

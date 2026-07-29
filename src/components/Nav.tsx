@@ -47,7 +47,7 @@ export default function Nav() {
         <div className="hidden lg:flex items-center gap-8">
           <NavLinks
             type="header"
-            className="text-sm text-brand-muted hover:text-brand-white transition-colors"
+            className="text-sm text-brand-muted transition-colors"
           />
           <a
             href="https://github.com/apps/repoguard-ifecodes"
