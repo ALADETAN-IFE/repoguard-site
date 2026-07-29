@@ -22,8 +22,48 @@ export function NavLinks({ type, className = "text-sm text-brand-muted transitio
     syncHash();
     window.addEventListener("hashchange", syncHash);
 
-    return () => window.removeEventListener("hashchange", syncHash);
-  }, [pathname]);
+    if (!isHome) {
+      return () => window.removeEventListener("hashchange", syncHash);
+    }
+
+    const sectionIds = HOME_ROUTES.filter((r) => r.href.startsWith("#")).map((r) =>
+      r.href.slice(1)
+    );
+
+    let ticking = false;
+
+    const updateActiveSection = () => {
+      const navOffset = 80;
+      let activeSection = "";
+
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= window.scrollY + navOffset) {
+          activeSection = id;
+        }
+      }
+
+      setHash(activeSection ? `#${activeSection}` : "");
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(updateActiveSection);
+      }
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("hashchange", syncHash);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", updateActiveSection);
+    };
+  }, [isHome]);
 
   const isActiveRoute = (href: string) => {
     if (href === "/") {
